@@ -29,9 +29,9 @@ def is_ip(target: str) -> bool:
     except Exception:
         return False
 
-@router.get("/analyze")
+@router.get("/analyse")
 @limiter.limit("5/minute")
-async def analyze(request: Request, target: str) -> dict:
+async def analyse(request: Request, target: str) -> dict:
     try:
         if is_ip(target):
             results = await asyncio.gather(
@@ -55,5 +55,7 @@ async def analyze(request: Request, target: str) -> dict:
                     "virustotal": result
                 }
             }
+    except HTTPException:
+        raise
     except Exception:
         raise HTTPException(status_code=400, detail="Target must be a valid IP address or URL")

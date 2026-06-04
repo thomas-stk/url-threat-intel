@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 *.pyo
 venv/
+
+# Impeccable skill (local dev tool, not part of the project)
+.claude/skills/impeccable/
+.impeccable/
+PRODUCT.md

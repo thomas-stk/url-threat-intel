@@ -17,7 +17,7 @@ async def check_virustotal_url(target_url: str) -> dict:
         "x-apikey": VT_KEY,
         "Accept": "application/json"
     }
-    try: 
+    try:
         async with httpx.AsyncClient(timeout=30.0) as client:
             response = await client.get(endpoint, headers=headers)
             response.raise_for_status()
@@ -26,6 +26,8 @@ async def check_virustotal_url(target_url: str) -> dict:
     except httpx.TimeoutException:
         raise HTTPException(status_code=504, detail="VirusTotal API request timed out")
     except httpx.HTTPStatusError as e:
+        if e.response.status_code == 404:
+            raise HTTPException(status_code=404, detail="No data found for this URL. It has not been analysed by VirusTotal yet.")
         raise HTTPException(status_code=502, detail=f"VirusTotal error: {e.response.status_code} - {e.response.text}")
 
 async def check_virustotal_ip(target_ip: str) -> dict:
