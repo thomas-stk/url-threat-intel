@@ -2,13 +2,15 @@
 
 A single-page threat intelligence tool. Enter an IP address or URL and it queries AbuseIPDB and VirusTotal in parallel, returning a structured threat assessment: risk score, vendor consensus, geolocation, and supporting metadata.
 
+Built to learn FastAPI and practice working with external APIs, including parallel requests, rate limiting with slowapi, and error handling across multiple third-party services.
+
 ![Screenshot](Screenshot1.png)
 ![Screenshot](Screenshot2.png)
 ![Screenshot](Screenshot3.png)
 
 ## Stack
 
-- **Frontend:** React, TypeScript, Vite, Tailwind CSS
+- **Frontend:** React, TypeScript, Vite, Tailwind CSS, Claude Code
 - **Backend:** Python, FastAPI, httpx
 - **Infrastructure:** Docker, Nginx, docker compose
 
