@@ -1,4 +1,4 @@
-# Threat Intel
+# URL Threat Intel
 
 A single-page threat intelligence tool. Enter an IP address or URL and it queries AbuseIPDB and VirusTotal in parallel, returning a structured threat assessment: risk score, vendor consensus, geolocation, and supporting metadata.
 
@@ -21,8 +21,8 @@ Built to learn FastAPI and practice working with external APIs, including parall
 1. Clone the repo
 
 ```
-git clone https://github.com/thomas-stk/threat-intel.git
-cd threat-intel
+git clone https://github.com/thomas-stk/url-threat-intel.git
+cd url-threat-intel
 ```
 
 2. Add your API keys
@@ -54,7 +54,7 @@ Both APIs have a free tier with no credit card required.
 ## Project structure
 
 ```
-threat-intel/
+url-threat-intel/
 ├── main.py                    # FastAPI entry point
 ├── routers/                   # Route handlers
 ├── services/                  # AbuseIPDB and VirusTotal clients
